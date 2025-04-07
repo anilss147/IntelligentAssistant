@@ -1,0 +1,28 @@
+{
+    "llm": {
+        "model_name": "bigscience/bloom-560m",
+        "model_path": "models/llm",
+        "use_gpu": false,
+        "max_new_tokens": 100,
+        "temperature": 0.7
+    },
+    "speech": {
+        "stt_model": "tiny",
+        "stt_model_path": "models/whisper",
+        "tts_voice": null,
+        "tts_rate": 175,
+        "tts_volume": 1.0
+    },
+    "memory": {
+        "vector_db_path": "data/vector_db",
+        "history_size": 20,
+        "embedding_model": "all-MiniLM-L6-v2"
+    },
+    "application": {
+        "name": "Jarvis",
+        "listening_indicator": "Listening...",
+        "thinking_indicator": "Thinking...",
+        "speaking_indicator": "Speaking...",
+        "assistant_prompt": "I am Jarvis, your AI assistant. I run completely offline on your machine. I can help you with various tasks, answer questions, and execute commands for you."
+    }
+}
