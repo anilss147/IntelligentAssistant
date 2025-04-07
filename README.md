@@ -10,35 +10,36 @@ An offline Jarvis-like AI assistant using Python, local LLMs, and open-source to
 - **Task Execution** - Open apps, set reminders, answer questions, and more
 - **Memory** - Remembers past conversations and learns from them
 - **Customizable** - Easy to configure and extend with new capabilities
+- **User Authentication** - Secure login and registration system
 
-## Requirements
+## Deployment with GitHub Actions
 
-- Python 3.8+
-- 8+ GB of RAM (16+ GB recommended for larger models)
-- GPU with 4+ GB VRAM (optional, but recommended for faster response)
-- Microphone and speakers/headphones
+This project includes GitHub Actions workflow for continuous integration and deployment.
 
-## Installation
+### Setup GitHub Repository
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/jarvis-ai-assistant.git
-   cd jarvis-ai-assistant
-   ```
+1. Create a new repository on GitHub
+2. Push your code to the repository
+3. GitHub Actions will automatically run the workflow defined in `.github/workflows/python-app.yml`
 
-2. Install the required packages:
-   ```bash
-   pip install -r requirements.txt
-   ```
+### Required Secrets for GitHub Actions
 
-3. Download the required models:
-   ```bash
-   python main.py --download-models
-   ```
+For deployment, add these secrets to your GitHub repository:
 
-## Usage
+- `SESSION_SECRET`: A random string for session security
+- `DATABASE_URL`: Your production database URL
+- `TWILIO_ACCOUNT_SID`: Your Twilio account SID (if using SMS)
+- `TWILIO_AUTH_TOKEN`: Your Twilio auth token (if using SMS)
+- `TWILIO_PHONE_NUMBER`: Your Twilio phone number (if using SMS)
 
-### Starting the Assistant
+### Deployment Options
+
+The workflow can be configured to deploy to platforms like Heroku or any other PaaS by updating the deployment section in the workflow file.
+
+### Running Locally
 
 ```bash
 python main.py
+```
+
+The application will be available at `http://localhost:5000`
