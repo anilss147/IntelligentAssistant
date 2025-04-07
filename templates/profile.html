@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h3 class="mb-0">User Profile</h3>
+                {% if current_user.is_admin %}
+                <span class="badge bg-primary">Admin</span>
+                {% endif %}
+            </div>
+            <div class="card-body">
+                <div class="row mb-3">
+                    <div class="col-md-4 fw-bold">Identity:</div>
+                    <div class="col-md-8">{{ current_user.identity }}</div>
+                </div>
+                {% if current_user.email %}
+                <div class="row mb-3">
+                    <div class="col-md-4 fw-bold">Email:</div>
+                    <div class="col-md-8">{{ current_user.email }}</div>
+                </div>
+                {% endif %}
+                {% if current_user.phone %}
+                <div class="row mb-3">
+                    <div class="col-md-4 fw-bold">Phone:</div>
+                    <div class="col-md-8">{{ current_user.phone }}</div>
+                </div>
+                {% endif %}
+                <div class="row mb-3">
+                    <div class="col-md-4 fw-bold">Last Login:</div>
+                    <div class="col-md-8">
+                        {% if current_user.last_login %}
+                        {{ current_user.last_login|datetime }}
+                        {% else %}
+                        First login
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-4 fw-bold">Account Created:</div>
+                    <div class="col-md-8">{{ current_user.created_at|datetime }}</div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a href="{{ url_for('index') }}" class="btn btn-primary">Back to Assistant</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
